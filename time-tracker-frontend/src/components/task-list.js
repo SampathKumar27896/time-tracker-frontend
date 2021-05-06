@@ -1,4 +1,5 @@
 import {useEffect, useState} from 'react';
+import TaskAction from './task-actions';
 import '../App.css';
 
 function TaskList() {
@@ -30,12 +31,11 @@ function TaskList() {
         </thead>
         <tbody>
            {
-               taskList.map(task=> (
+               taskList.map((task)=> (
                 (<tr>
-                    <th scope="row">{task.id}</th>
+                    <th scope="row" id={"row"+task.id}>{task.id}</th>
                     <td>{task.task_name}</td>
-                    <td>{task.start_time}</td>
-                    <td>{task.end_time}</td>
+                    <td><TaskAction/></td>
                     </tr>
                 )
                ))

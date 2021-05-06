@@ -7,3 +7,12 @@
   width:50%;
   margin: 0 auto;
 }
+
+
+/* task-actions */
+.task-action-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+/* task-actions */
