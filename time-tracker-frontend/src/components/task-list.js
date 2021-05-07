@@ -26,15 +26,17 @@ function TaskList() {
             <tr>
             <th scope="col">Id</th>
             <th scope="col">Task name</th>
+            <th scope="col">Duration</th>
             <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
            {
                taskList.map((task)=> (
-                (<tr>
-                    <th scope="row" id={"row"+task.id}>{task.id}</th>
+                (<tr  id={"row"+task.id}>
+                    <th scope="row">{task.id}</th>
                     <td>{task.task_name}</td>
+                    <td>{task.duration}</td>
                     <td><TaskAction/></td>
                     </tr>
                 )
