@@ -1,12 +1,9 @@
-import TaskAddForm from './components/task-add-form';
-import TaskList from './components/task-list';
 import './App.css';
-
+import MainLayout from './layouts/Default';
 function App() {
   return (
     <div className="App">
-      <TaskAddForm/>
-      <TaskList/>
+      <MainLayout/>
     </div>
   );
 }

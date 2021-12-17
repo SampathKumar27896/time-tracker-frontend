@@ -1,0 +1,74 @@
+.board {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 10% 90%;
+    grid-column-gap: 0.33%;
+    grid-row-gap: 0px;
+    height: 100%; 
+    
+    color:rgb(44, 44, 44);
+}
+.board > div {
+    border-radius: 5px;
+    color:rgb(44, 44, 44);
+    /* background-color: rgba(0, 0, 0, 0.562); */
+}
+.board-heading {
+    font-weight: 600;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.new-pane { 
+    grid-area: 2 / 1 / 3 / 1; 
+    /* background-color: orange; */
+    padding: 10px;
+    overflow-y: auto;
+    
+}
+.inprogress-pane { 
+    grid-area: 2 / 2 / 3 / 3; 
+    /* background-color: red; */
+    padding: 10px;
+    overflow-y: auto;
+   
+}
+.completed-pane { 
+    grid-area: 2 / 3 / 3 / 4;
+    /* background-color: blue; */
+    padding: 10px; 
+    overflow-y: auto;
+}
+
+.board-status-header {
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+    padding: 10px;
+    background-color: #f6f6f6;
+}
+.task-add-button {
+    /* border: none; */
+    justify-content:flex-end;
+    margin-left: auto;
+}
+.total-tasks-number {
+    font-weight: 400;
+    /* background-color: rgb(253, 253, 253); */
+    border-radius: 10px;
+    height: auto;
+    width: auto;
+}
+.task-add-icon {
+    height: 26px;
+    width: 26px;
+    
+}
+.task-card {
+    height: 150px;
+    width: 100%;
+    /* background-color: #ffffff; */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #707070;
+    
+}

@@ -2,13 +2,9 @@
 body {
   margin: 0;
   font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
- 
 }
 
-#root{
-  margin:auto;
-  text-align:center;
-}
