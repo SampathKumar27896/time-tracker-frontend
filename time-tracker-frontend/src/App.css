@@ -22,8 +22,92 @@ button:focus {
     border-radius: 5px;
     background: #868686; 
   }
-  
-  /* Handle on hover
-  ::-webkit-scrollbar-thumb:hover {
-    background: #eeeded; 
-  } */
+  body {
+    background-color: #FAFAFA;
+  }
+  .heading-one {
+    font-size: 38px;
+    font-weight: 900;
+    color: rgba(86, 89, 92, 1);
+  }
+
+  .primary-btn {
+    background-color:#0477e2;
+    border: 1px solid  rgba(255, 255, 255, 0.08);
+    font-family: Inter;
+    border-radius: 5px;
+    color: #EFEBE9;
+    padding: 0px 5px 0px 5px;
+    box-shadow: 0px 1px 0px #cccccc;
+  }
+  .secondary-btn {
+    background-color:  rgba(255, 255, 255, 0.7);
+    border: 1px solid  rgba(0, 0, 0, 0.0578);
+    font-family: Inter;
+    border-radius: 5px; 
+    color: #37474F;
+    padding: 0px 5px 0px 5px;
+    box-shadow: 0px 1px 0px #cccccc;
+  }
+  .primary-btn:active {
+    box-shadow:none;
+    background-color:#2e7fd3;
+    color: #d3d0cf;
+  }
+  .secondary-btn:active {
+    box-shadow:none;
+    background-color: #EEEEEE;
+    color: #00090e;
+  }
+  .register-btn, .cancel-btn, .login-btn {
+    height: 40px;
+    width:120px;
+    font-size: 16px;
+}
+/* Text input */
+
+.text-area {
+  border: 1px solid #dfdfdf;
+  border-radius:5px;
+  font-family: Inter;
+  padding: 10px;
+  font-size: 15px;
+}
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus .text-area:focus {
+  outline: none;
+  border-bottom: 2.5px solid #2e7fd3;
+}
+input[type=text], input[type=password], input[type=email] {
+  border: 1px solid #dfdfdf;
+  border-radius:5px;
+  font-family: Inter;
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* Forms */
+.form-heading {
+  margin-bottom: 10px;
+}
+.registrationForm, .loginForm{
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 5% auto;
+}
+.registrationForm > input, .loginForm > input {
+  margin: 0px 0px 10px 0px;
+}
+
+.registrationFormBtns, .loginFormBtns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.registrationForm > .anchor, .loginForm > .anchor {
+  color: #2e7fd3;
+  align-self: end;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 10px;
+}
