@@ -1,17 +1,68 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-const Login = () => {
+import React, {useState, useEffect} from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import {useSelector, useDispatch} from 'react-redux';
+import { getUserInfo, loginUser, resetStatus, saveUser} from '../features/user/userSlice';
+import InfoBar from './InfoBar';
+const Login = (props) => {
+    console.log(props.user)
+    const dispatch = useDispatch();
+    const navigateTo = useNavigate ();
+    const user = useSelector(state => state.user);
+    const getEmptyObject = () => {
+        return {
+            email: "",
+            password: "",
+        }
+    }
+    useEffect(() => {
+        dispatch(resetStatus())
+        if(props.user && props.user.isAuthenticated)
+            redirect();
+    },[])
+    useEffect(() => {
+        if(user.status === 'success') {
+            const result = saveUser(user);
+            if(result.status) {
+                redirect();
+            }
+        }
+    },[user.status])
+    let formInput = getEmptyObject();
+    const [formState, setFormState] = useState(formInput);
+    const handleInputChange = (e) => {
+        setFormState(prevState => ({
+            ...prevState,
+            [e.target.name]: e.target.value
+        }));
+    }
+    const handleFormSubmit = async(e) => {
+        e.preventDefault();
+        dispatch(loginUser(formState));
+    }
+    const redirect = () => {
+        setTimeout(() => {
+            navigateTo('/task')
+        }, 1000)
+    }
+    const resetState = () => {
+        const emptyObject = getEmptyObject();
+        setFormState(emptyObject);
+    }
+    const onClickCanel = (e) => {
+        resetState();
+    }
     return (
         <div>
-            <form>
+            {(user.status === 'success') && redirect()}
+            <form onSubmit={handleFormSubmit}>
                 <div className="loginForm">
+                    <InfoBar state={user.status} message={user.message}/>
                     <label className="heading-one form-heading">Login</label>
-                    <input type="text" name="email" id="email" className="" placeholder="Email"></input>
-                    <input type="password" name="password" id="password" className="" placeholder="Password"></input>
+                    <input type="text" name="email" id="email" className="" placeholder="Email" onChange={handleInputChange} value={formState.email}></input>
+                    <input type="password" name="password" id="password" className="" placeholder="Password" onChange={handleInputChange} value={formState.password}></input>
                     <div className="loginFormBtns">
-                    <span><button className="secondary-btn cancel-btn">Cancel</button></span>
-                    <span><button className="primary-btn login-btn">Login</button> </span>
-                    
+                        <span><input type="button"  onClick={(e) => onClickCanel(e)} className="secondary-btn cancel-btn" value="Cancel"/></span>
+                        <span><input type="submit" className="primary-btn login-btn" value="Login"/> </span>
                     </div>
                     <Link className="anchor" to="/register">or Register</Link>
                 </div>

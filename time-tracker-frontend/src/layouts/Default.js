@@ -1,35 +1,31 @@
 import React from 'react';
 import SideBar from '../components/SideBar';
 import NavBar from '../components/NavBar';
-import Register from '../components/Register';
-import Login from '../components/Login';
 import './Default.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Link } from "react-router-dom";
-const MainLayout = () => {
+import { getUserFromStorage } from '../features/user/userSlice';
+import { Outlet } from 'react-router-dom';
+const MainLayout = (props) => {
+    const user = getUserFromStorage(); 
     return(
-        <BrowserRouter>
+            
             <div class="default-grid">
                 <div className="top-pane">
-                    <NavBar/>
+                {(user && user.data.isAuthenticated)? <NavBar user={props.user}/>: <></>}
                 </div>
                 <div className="left-top-pane"> 
-                    left-top
+                    
                 </div>
                 <div className="left-center-pane"> 
-                    <SideBar/>
+                {(user && user.data.isAuthenticated)? <SideBar/>: <></>}
                 </div>
                 <div className="left-bottom-pane"> 
-                    left-bottom
+                    
                 </div>
                 <div className="right-pane">
-                    <Routes>
-                        <Route path="/register" element = { <Register />} />
-                        <Route path="/login" element = { <Login />} />
-                    </Routes>
+                    <Outlet/>
                 </div>
             </div>
-        </BrowserRouter>
+       
         
     )
 }

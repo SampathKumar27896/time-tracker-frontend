@@ -1,41 +1,38 @@
 import React from 'react';
 import './SideBar.css';
 import { IconContext } from "react-icons";
-import { FiHome, FiTrendingUp, FiFolder, FiMessageSquare, FiCalendar } from 'react-icons/fi';
+import { FiList, FiTrendingUp, FiFolder, FiMessageSquare, FiCalendar } from 'react-icons/fi';
 
 const SideBar = () => {
     const handleOnlickSidebarItem = async(e, key) => {
         const sideBarItems = document.querySelectorAll(".sidebar-item");
+        // let activeMarker;
         sideBarItems.forEach((item) => {
-            item.classList.remove("sidebar-item-active");
+            if(item.classList.length > 1) {
+                item.classList.remove("sidebar-item-active");
+                item.querySelector('.marker').classList.remove("display-block");
+            } else if(item.id === "sidebar-item-"+key) {
+                item.classList.add("sidebar-item-active");
+                item.querySelector('.marker').classList.add("display-block");
+            }
         })
-        const currentElement = document.getElementById("sidebar-item-"+key);
-        currentElement.classList.add("sidebar-item-active")
     }
     return (
         <div className="sidebar-flex-container">
             <div className="sidebar-item sidebar-item-active" id="sidebar-item-1" onClick={(e) => handleOnlickSidebarItem(e, 1)}>
                 <div className="sidebar-flex-child-container" >
+                    <div className="marker display-block"></div>
                     <IconContext.Provider value={{  className: "sidebar-icon" }}>
-                                <FiHome /> 
+                                <FiList /> 
                     </IconContext.Provider>
                     <a herf="#" className="sidebar-flex-child-item">
-                        Overview
+                        Task
                     </a>
                 </div>
             </div>
             <div className="sidebar-item" id="sidebar-item-2" onClick={(e) => handleOnlickSidebarItem(e, 2)}>
                 <div className="sidebar-flex-child-container">
-                    <IconContext.Provider value={{  className: "sidebar-icon" }}>
-                                <FiTrendingUp /> 
-                    </IconContext.Provider>
-                    <a herf="#" className="sidebar-flex-child-item">
-                        Stats
-                    </a>
-                </div>
-            </div>
-            <div className="sidebar-item" id="sidebar-item-3" onClick={(e) => handleOnlickSidebarItem(e, 3)}>
-                <div className="sidebar-flex-child-container">
+                    <div className="marker"></div>
                     <IconContext.Provider value={{  className: "sidebar-icon" }}>
                                 <FiFolder /> 
                     </IconContext.Provider>
@@ -44,7 +41,18 @@ const SideBar = () => {
                     </a>
                 </div>
             </div>
-            <div className="sidebar-item" id="sidebar-item-4" onClick={(e) => handleOnlickSidebarItem(e, 4)}>
+            <div className="sidebar-item" id="sidebar-item-3" onClick={(e) => handleOnlickSidebarItem(e, 3)}>
+                <div className="sidebar-flex-child-container">
+                    <div className="marker"></div>
+                    <IconContext.Provider value={{  className: "sidebar-icon" }}>
+                                <FiFolder /> 
+                    </IconContext.Provider>
+                    <a herf="#" className="sidebar-flex-child-item">
+                        TaskLog
+                    </a>
+                </div>
+            </div>
+            {/* <div className="sidebar-item" id="sidebar-item-4" onClick={(e) => handleOnlickSidebarItem(e, 4)}>
                 <div className="sidebar-flex-child-container">
                     <IconContext.Provider value={{  className: "sidebar-icon" }}>
                                 <FiMessageSquare /> 
@@ -63,7 +71,7 @@ const SideBar = () => {
                         Calender
                     </a>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }

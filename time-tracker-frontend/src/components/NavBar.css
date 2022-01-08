@@ -2,17 +2,17 @@
     display: flex;
     /* background-color:aliceblue; */
     flex-direction: row;
-    padding: 10px 5px;
-    justify-content: space-between;
+    padding: 10px 10px;
+    justify-content: flex-end;
     
 }
 .nav-flex-child-container {
     display: flex;
     /* box-shadow: inset 1px 1px 3px 0px #c6c6c6; */
     flex-direction: row;
-    padding: 6px;
+    padding: 7px;
     border: 1px solid #888888;
-    border-radius: 30px;
+    border-radius: 5px;
     height: 15px;
     align-items: center;
 }
@@ -29,8 +29,8 @@
 }
 .search-box {
     border: none;
-    height: 15px;
-    width: 200px;
+    height: 10px;
+    width: 100px;
     font-family: "Inter";
     font-weight: 400;
     font-size: 14px;

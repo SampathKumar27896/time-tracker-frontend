@@ -1,11 +1,12 @@
+import React, { useEffect } from 'react';
 import './App.css';
-import MainLayout from './layouts/Default';
-
+import Routes from './routes';
 import Login from './components/Login';
 function App() {
+  
   return (
     <div className="App">
-      <MainLayout/>
+      <Routes/>
     </div>
   );
 }
