@@ -116,3 +116,13 @@ input[type=text], input[type=password], input[type=email] {
   font-size: 15px;
   margin: 10px;
 }
+
+.page-header-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.page-header-flex > * {
+  margin: 0px 30px;
+}

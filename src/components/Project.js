@@ -4,8 +4,8 @@ import './Project.css';
 const Project = () => {
     return (
         <div>
-            <div className="project-header-flex">
-                <label className="heading-one form-heading">Projects</label>
+            <label className="heading-one form-heading">Projects</label>
+            <div className="page-header-flex">
                 <Dropdown name="status" list={[]}/>
                 <input type="button" id="add-task" class="primary-btn add-task-btn" value="Add"/>
             </div>

@@ -4,8 +4,8 @@ import './TaskLog.css';
 const TaskLog = () => {
     return (
         <div>
-            <div className="tasklog-header-flex">
-                <label className="heading-one form-heading">Task Logs</label>
+            <label className="heading-one form-heading">Task Logs</label>
+            <div className="page-header-flex">
                 <Dropdown name="project"  list={[]}/>
                 <Dropdown name="task" list={[]}/>
             </div>
