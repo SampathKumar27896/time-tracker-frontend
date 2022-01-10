@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
-import { getUserInfo, loginUser, resetStatus, saveUser} from '../features/user/userSlice';
+import { loginUser, resetStatus, saveUser} from '../features/user/userSlice';
 import InfoBar from './InfoBar';
 const Login = (props) => {
     console.log(props.user)
     const dispatch = useDispatch();
-    const navigateTo = useNavigate ();
     const user = useSelector(state => state.user);
     const getEmptyObject = () => {
         return {
@@ -41,7 +40,7 @@ const Login = (props) => {
     }
     const redirect = () => {
         setTimeout(() => {
-            navigateTo('/task')
+            window.location = "/task";
         }, 1000)
     }
     const resetState = () => {

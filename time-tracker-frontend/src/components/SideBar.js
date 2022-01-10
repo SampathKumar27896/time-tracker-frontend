@@ -1,14 +1,15 @@
 import React from 'react';
 import './SideBar.css';
 import { IconContext } from "react-icons";
-import { FiList, FiTrendingUp, FiFolder, FiMessageSquare, FiCalendar } from 'react-icons/fi';
+import { FiList, FiFolder } from 'react-icons/fi';
+import { Link } from "react-router-dom";
 
 const SideBar = () => {
     const handleOnlickSidebarItem = async(e, key) => {
         const sideBarItems = document.querySelectorAll(".sidebar-item");
         // let activeMarker;
         sideBarItems.forEach((item) => {
-            if(item.classList.length > 1) {
+            if(item.classList.length > 1 && item.id !== "sidebar-item-"+key) {
                 item.classList.remove("sidebar-item-active");
                 item.querySelector('.marker').classList.remove("display-block");
             } else if(item.id === "sidebar-item-"+key) {
@@ -25,9 +26,7 @@ const SideBar = () => {
                     <IconContext.Provider value={{  className: "sidebar-icon" }}>
                                 <FiList /> 
                     </IconContext.Provider>
-                    <a herf="#" className="sidebar-flex-child-item">
-                        Task
-                    </a>
+                    <Link className="sidebar-flex-child-item sidebar-text" to="/task">Tasks</Link>
                 </div>
             </div>
             <div className="sidebar-item" id="sidebar-item-2" onClick={(e) => handleOnlickSidebarItem(e, 2)}>
@@ -36,9 +35,7 @@ const SideBar = () => {
                     <IconContext.Provider value={{  className: "sidebar-icon" }}>
                                 <FiFolder /> 
                     </IconContext.Provider>
-                    <a herf="#" className="sidebar-flex-child-item">
-                        Projects
-                    </a>
+                    <Link className="sidebar-flex-child-item sidebar-text" to="/project">Projects</Link>
                 </div>
             </div>
             <div className="sidebar-item" id="sidebar-item-3" onClick={(e) => handleOnlickSidebarItem(e, 3)}>
@@ -47,9 +44,7 @@ const SideBar = () => {
                     <IconContext.Provider value={{  className: "sidebar-icon" }}>
                                 <FiFolder /> 
                     </IconContext.Provider>
-                    <a herf="#" className="sidebar-flex-child-item">
-                        TaskLog
-                    </a>
+                    <Link className="sidebar-flex-child-item sidebar-text" to="/tasklog">Task Logs</Link>
                 </div>
             </div>
             {/* <div className="sidebar-item" id="sidebar-item-4" onClick={(e) => handleOnlickSidebarItem(e, 4)}>

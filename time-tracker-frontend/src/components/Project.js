@@ -1,12 +1,11 @@
 import React from 'react';
 import Dropdown from './Dropdown';
-import './Task.css';
-const Task = () => {
+import './Project.css';
+const Project = () => {
     return (
         <div>
-            <div className="task-header-flex">
-                <label className="heading-one form-heading">Tasks</label>
-                <Dropdown name="project"  list={[]}/>
+            <div className="project-header-flex">
+                <label className="heading-one form-heading">Projects</label>
                 <Dropdown name="status" list={[]}/>
                 <input type="button" id="add-task" class="primary-btn add-task-btn" value="Add"/>
             </div>
@@ -14,4 +13,4 @@ const Task = () => {
     )
 }
 
-export default Task;
+export default Project;

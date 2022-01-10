@@ -24,12 +24,13 @@ button:focus {
   }
   body {
     background-color: #fffcfcf8;
+    /* background: linear-gradient(4deg, rgba(251,252,254,1) 4%, rgba(4,119,226,0.073564459963673) 100%); */
   }
   .heading-one {
     font-size: 38px;
     font-weight: 900;
     color: rgba(86, 89, 92, 1);
-    text-shadow: 0px 1px 0px #cccccc;
+    /* text-shadow: 0px 1px 0px #cccccc; */
   }
 
   .primary-btn {
