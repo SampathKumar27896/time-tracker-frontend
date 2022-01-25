@@ -22,15 +22,16 @@ const Dropdown = (props) => {
                 <div className="selected-item" id={"selected-item"+props.name}>
                     {props.name}
                 </div> 
-                <IconContext.Provider value={{  className: "down-arrow-icon" }}>
+                <IconContext.Provider value={{  className: "icon-secondary" }}>
                     <FiChevronDown /> 
                 </IconContext.Provider>
             </div>
             <ul name={"dropdown-"+props.name} id={"dropdown-"+props.name} className="dropdown">
-                <li id="1" value="volvo" onClick={(e)=>handleOnChange(e,1,"volvo")}>Volvo</li>
-                <li id="2" value="saab" onClick={(e)=>handleOnChange(e,1,"saab")}>Saab</li>
-                <li id="3" value="This is some kind of big project you can't see" onClick={(e)=>handleOnChange(e,1,"This is some kind of big project you can't see")}>This is some kind of big project you can't see</li>
-                <li id="4" value="audi" onClick={(e)=>handleOnChange(e,1,"audi")}>Audi</li>
+                {
+                    props.list.map((item, index) => {
+                        return <li key={item.id} id={item.id} value={item.name} onClick={(e)=>handleOnChange(e,item.id,item.name)}>{item.name}</li>
+                    })
+                }
             </ul>
         </div>
     )

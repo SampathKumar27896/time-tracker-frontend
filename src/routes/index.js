@@ -4,6 +4,7 @@ import Login from '../components/Login';
 import Task from '../components/Task';
 import TaskLog from '../components/TaskLog';
 import Project from '../components/Project';
+import AddProject from '../components/AddProject';
 import Layout from '../layouts/Default';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { getUserFromStorage } from '../features/user/userSlice';
@@ -19,6 +20,7 @@ const APIRoute = () => {
                     <Route path="/task" element = { <Task/>} />
                     <Route path="/taskLog" element = { <TaskLog/>} />
                     <Route path="/project" element = { <Project/>} />
+                    <Route path="/addProject" element = { <AddProject/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

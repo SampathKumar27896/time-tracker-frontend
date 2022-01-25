@@ -4,7 +4,10 @@ textarea:focus,
 button:focus {
     outline: none;
 }
-
+* {
+  margin: 0;
+  padding: 0;
+}
 /* width */
 ::-webkit-scrollbar {
     width: 6px;
@@ -23,7 +26,7 @@ button:focus {
     background: #868686; 
   }
   body {
-    background-color: #fffcfcf8;
+    background-color: rgb(248, 248, 248);
     /* background: linear-gradient(4deg, rgba(251,252,254,1) 4%, rgba(4,119,226,0.073564459963673) 100%); */
   }
   .heading-one {
@@ -32,7 +35,17 @@ button:focus {
     color: rgba(86, 89, 92, 1);
     /* text-shadow: 0px 1px 0px #cccccc; */
   }
-
+  .heading-two {
+    font-size: 16px;
+    font-weight: 900;
+    color: rgba(86, 89, 92, 1);
+    /* text-shadow: 0px 1px 0px #cccccc; */
+  }
+  .content-two {
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(130, 130, 130);
+  }
   .primary-btn {
     background-color:#0477e2;
     border: 1px solid  rgba(255, 255, 255, 0.08);
@@ -42,6 +55,11 @@ button:focus {
     padding: 0px 5px 0px 5px;
     box-shadow: 0px 1px 0px #cccccc;
   }
+  .add-btn {
+    height: 30px;
+    width: 100px;
+    padding: 5px 10px;
+  }
   .secondary-btn {
     background-color:  rgba(255, 255, 255, 0.7);
     border: 1px solid  rgba(0, 0, 0, 0.0578);
@@ -50,6 +68,11 @@ button:focus {
     color: #37474F;
     padding: 0px 5px 0px 5px;
     box-shadow: 0px 1px 0px #cccccc;
+  }
+  .cancel-btn-small {
+    height: 30px;
+    width: 100px;
+    padding: 5px 10px;
   }
   .primary-btn:active {
     box-shadow:none;
@@ -65,7 +88,7 @@ button:focus {
     height: 40px;
     width:120px;
     font-size: 16px;
-}
+  }
 /* Text input */
 
 .text-area {
@@ -74,8 +97,10 @@ button:focus {
   font-family: Inter;
   padding: 10px;
   font-size: 15px;
+  height: 250px;
+  resize: none;
 }
-input[type=text]:focus, input[type=password]:focus, input[type=email]:focus .text-area:focus {
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, .text-area:focus {
   outline: none;
   border-bottom: 2.5px solid #2e7fd3;
   
@@ -92,19 +117,26 @@ input[type=text], input[type=password], input[type=email] {
 /* Forms */
 .form-heading {
   margin-bottom: 10px;
-  
+  /* margin-left: auto; */
 }
-.registrationForm, .loginForm{
+.registrationForm, .loginForm {
   display: flex;
   flex-direction: column;
   width: 20%;
   margin: 5% auto;
 }
-.registrationForm > input, .loginForm > input {
+.dataForm {
+  display: flex;
+  flex-direction: column;
+  margin: 1% auto;
+  width: 40%;
+  
+}
+.registrationForm > input, .loginForm > input, .dataForm > *{
   margin: 0px 0px 10px 0px;
 }
 
-.registrationFormBtns, .loginFormBtns {
+.registrationFormBtns, .loginFormBtns, .dataFormBtns {
   display: flex;
   justify-content: space-between;
 }
@@ -122,7 +154,24 @@ input[type=text], input[type=password], input[type=email] {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
+  /* background-color: #2e7ed315; */
+  border-radius: 5px;
+  height: 40px;
 }
 .page-header-flex > * {
   margin: 0px 30px;
+}
+.page-heading {
+  margin-right: auto;
+}
+.icon-secondary {
+  color:rgb(143 143 143);
+  width: 24px;
+  height: 24px;
+  /* padding: 0px 5px 0px 8px; */
+}
+.icon-size-two {
+  color:rgb(143 143 143);
+  width: 18px;
+  height: 18px;
 }

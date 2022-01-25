@@ -6,7 +6,7 @@ import { getUserInfo, registerUser, resetStatus} from '../features/user/userSlic
 import InfoBar from './InfoBar';
 const Register = () => {
     const dispatch = useDispatch();
-    const navigateTo = useNavigate ();
+    const navigateTo = useNavigate();
     const user = useSelector(state => state.user);
     const getEmptyObject = () => {
         return {

@@ -1,14 +1,8 @@
-.project-task-btn {
-    height: 30px;
-    padding: 5px 10px;
+.card-list {
+    padding: 0px;
+    margin-top: 1%;
 }
-.project-header-flex {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+.card-list > * {
+    margin: 10px 0px;
 }
 
-.project-header-flex > * {
-    margin: 0px 30px;
-}

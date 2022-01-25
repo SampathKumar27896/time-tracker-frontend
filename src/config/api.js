@@ -1,4 +1,7 @@
+const localBaseURL = "http://localhost:3001";
 export default {
-    REGISTER: "http://localhost:3001/user/register",
-    LOGIN: "http://localhost:3001/user/login"
+    REGISTER: localBaseURL+"/user/register",
+    LOGIN: localBaseURL+"/user/login",
+    ADD_PROJECT: localBaseURL+"/project/add",
+    GET_PROJECTS: localBaseURL+"/project/all"
 }

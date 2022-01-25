@@ -1,0 +1,41 @@
+.list-item-card {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: flex-end; */
+    align-items: center;
+    width: 450px;
+    border: 1px solid  rgba(0, 0, 0, 0.0578);
+    box-shadow: 0px 0.1px 4px 0px #f5f5f5;
+    border-radius: 5px;
+    position: relative;
+}
+.list-item-card-before {
+    position: absolute;
+    content: "";
+    top: 20px;
+    height: 40px;
+    width: 4px;
+    left: -3px;
+    background-color: #2e7fd3;
+    border-radius: 10px;
+}
+
+.list-item-card > .list-item-card-text-flex, 
+.list-item-card > .list-item-card-icon-edit,
+.list-item-card > .list-item-card-icon-info {
+    margin: 0px 15px;
+    padding: 10px 5px;
+}
+.opacity-none {
+    opacity:0;
+}
+.list-item-card-text-flex {
+    margin-right: auto;
+    white-space: nowrap;
+    width: 60%;
+}
+.list-item-card-text-flex > * {
+    padding: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

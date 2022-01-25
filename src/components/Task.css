@@ -1,8 +1,4 @@
-.add-task-btn {
-    height: 30px;
-    width: 100px;
-    padding: 5px 10px;
-}
+
 .page-header-flex {
     display: flex;
     flex-direction: row;

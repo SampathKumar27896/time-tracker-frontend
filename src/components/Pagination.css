@@ -1,0 +1,9 @@
+.pagination-flex {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin: 10px;
+}
+.pagination-flex > .pagination-flex-item {
+    margin: 10px;
+}

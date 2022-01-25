@@ -1,22 +1,23 @@
 
+import { getUserFromStorage, destroyUser } from './features/user/userSlice';
 export async function client(endpoint, { body, ...customConfig } = {}) {
-  const headers = { 'Content-Type': 'application/json' }
-
-  const config = {
-    method: body ? 'POST' : 'GET',
-    ...customConfig,
-    headers: {
-      ...headers,
-      ...customConfig.headers,
-    },
-  }
-
-  if (body) {
-    config.body = JSON.stringify(body);
-  }
-
-  let data
   try {
+    const headers = { 'Content-Type': 'application/json' }
+    const user = getUserFromStorage();
+    let data;
+    if(user && user.data)
+      headers.token = 'Bearer '+user.data.authToken;
+    const config = {
+      method: body ? 'POST' : 'GET',
+      ...customConfig,
+      headers: {
+        ...headers,
+        ...customConfig.headers,
+      },
+    }
+    if (body) {
+      config.body = JSON.stringify(body);
+    }
     const response = await window.fetch(endpoint, config)
     data = await response.json()
     if (data.status) {
@@ -25,9 +26,14 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
         data
       }
     }
+    if(response.status === 401) {
+        destroyUser();
+        window.location = "/login"
+    }
     throw new Error(data.message)
   } catch (err) {
-    return Promise.reject(err.message ? err.message : data)
+    console.log(err.message)
+    return Promise.reject(err.message ? err.message: err)
   }
 }
 

@@ -25,10 +25,8 @@ const userSlice = createSlice({
             state.status = 'loading'
           })
           .addCase(registerUser.fulfilled, (state, action) => {
-            console.log(action)
             state.status = 'success'
             state.message = action.payload.message;
-        
           })
           .addCase(registerUser.rejected, (state, action) => {
             state.status = 'failed'
@@ -38,6 +36,7 @@ const userSlice = createSlice({
             state.status = 'loading'
           })
           .addCase(loginUser.fulfilled, (state, action) => {
+            console.log(action)
             state.status = 'success';
             state.userId = action.payload.userId;
             state.userName = action.payload.userName;
@@ -86,11 +85,21 @@ export const saveUser = (user) => {
    }
 }
 
+export const destroyUser = () => {
+  try {
+     localStorage.removeItem('user');
+     return {status: true}
+  }catch(error) {
+    return {status: false, message: error.message};
+  }
+}
+
 export const getUserFromStorage = () => {
   try {
     const user = localStorage.getItem('user');
     const parsedData = JSON.parse(user);
     return {status:true, data: parsedData};
+    
   }catch(error) {
       return {status:false, message: error.message};
   }

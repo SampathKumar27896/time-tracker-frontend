@@ -4,7 +4,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import { loginUser, resetStatus, saveUser} from '../features/user/userSlice';
 import InfoBar from './InfoBar';
 const Login = (props) => {
-    console.log(props.user)
     const dispatch = useDispatch();
     const user = useSelector(state => state.user);
     const getEmptyObject = () => {
@@ -14,18 +13,19 @@ const Login = (props) => {
         }
     }
     useEffect(() => {
+        console.log(props)
         dispatch(resetStatus())
         if(props.user && props.user.isAuthenticated)
             redirect();
     },[])
     useEffect(() => {
-        if(user.status === 'success') {
+        if(user.status === 'success' && user.isAuthenticated) {
             const result = saveUser(user);
             if(result.status) {
                 redirect();
             }
         }
-    },[user.status])
+    },[user])
     let formInput = getEmptyObject();
     const [formState, setFormState] = useState(formInput);
     const handleInputChange = (e) => {
@@ -52,7 +52,7 @@ const Login = (props) => {
     }
     return (
         <div>
-            {(user.status === 'success') && redirect()}
+            {(user.status === 'success' && user.isAuthenticated) && redirect()}
             <form onSubmit={handleFormSubmit}>
                 <div className="loginForm">
                     <InfoBar state={user.status} message={user.message}/>
