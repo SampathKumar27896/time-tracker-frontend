@@ -13,14 +13,14 @@ const Dropdown = (props) => {
     }
     const handleOnChange = (e,id,model) => {
        document.getElementById("selected-item"+props.name).innerHTML = model;
-       
+       props.handleDropdownChange(e.target.id);
        handleFocusOut();
     }
     return (
         <div className="select-container"  tabIndex = "0" onBlur={handleFocusOut}>
             <div className="dropdown-flex" id={"dropdown-flex-"+props.name} onClick={(e) => handleSelect(e)}>
                 <div className="selected-item" id={"selected-item"+props.name}>
-                    {props.name}
+                    {(props.list[0])?props.list[0].name : ""}
                 </div> 
                 <IconContext.Provider value={{  className: "icon-secondary" }}>
                     <FiChevronDown /> 

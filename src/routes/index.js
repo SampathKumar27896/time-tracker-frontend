@@ -21,6 +21,7 @@ const APIRoute = () => {
                     <Route path="/taskLog" element = { <TaskLog/>} />
                     <Route path="/project" element = { <Project/>} />
                     <Route path="/addProject" element = { <AddProject/>} />
+                    <Route path="/project/edit/:id" element = { <AddProject/>} />
                 </Route>
             </Routes>
         </BrowserRouter>

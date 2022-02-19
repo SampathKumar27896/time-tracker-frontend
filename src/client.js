@@ -1,5 +1,5 @@
 
-import { getUserFromStorage, destroyUser } from './features/user/userSlice';
+import { getUserFromStorage, destroyStorage } from './features/user/userSlice';
 export async function client(endpoint, { body, ...customConfig } = {}) {
   try {
     const headers = { 'Content-Type': 'application/json' }
@@ -27,7 +27,7 @@ export async function client(endpoint, { body, ...customConfig } = {}) {
       }
     }
     if(response.status === 401) {
-        destroyUser();
+        destroyStorage();
         window.location = "/login"
     }
     throw new Error(data.message)

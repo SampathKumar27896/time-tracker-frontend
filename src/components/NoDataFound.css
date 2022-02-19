@@ -1,0 +1,14 @@
+
+.no-data-found-content {
+    margin: 10% 50%;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.no-data-found-icon {
+    height: 84px;
+    width: 84px;
+    display: block;
+    color:rgb(226, 226, 226);
+}

@@ -85,9 +85,9 @@ export const saveUser = (user) => {
    }
 }
 
-export const destroyUser = () => {
+export const destroyStorage = () => {
   try {
-     localStorage.removeItem('user');
+     localStorage.clear();
      return {status: true}
   }catch(error) {
     return {status: false, message: error.message};
