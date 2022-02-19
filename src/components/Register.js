@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './Register.css';
 import { Link, useNavigate  } from "react-router-dom";
 import {useSelector, useDispatch} from 'react-redux';
-import { getUserInfo, registerUser, resetStatus} from '../features/user/userSlice';
+import { registerUser, resetStatus} from '../features/user/userSlice';
 import InfoBar from './InfoBar';
 const Register = () => {
     const dispatch = useDispatch();

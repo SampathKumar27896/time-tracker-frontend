@@ -22,21 +22,24 @@ const Project = () => {
     const [isActive, setActive] = useState(1);
     const [activeCard, setActiveCard] = useState({});
     const [resetPagination, setResetPagination] = useState(false);
-    useEffect ( async() => {
-        try {
-            let getProjectsURL = URL.GET_PROJECTS+"?offset="+offset+"&isActive="+isActive;
-            dispatch(setLoadingState())
-            const result = await client.get(getProjectsURL, {});
-            setProjects([...result.data.projects])
-            setTotalPages(result.data.totalPages);
-            setPage(result.data.page);
-            setCount(result.data.count);
-            setResetPagination(false);
-            dispatch(setSuccessState(result.data.message))
-        }catch(error) {
-            console.error(error)
-            dispatch(setFailedState(error));
+    useEffect (() => {
+        async function fetchProjects() {
+            try {
+                let getProjectsURL = URL.GET_PROJECTS+"?offset="+offset+"&isActive="+isActive;
+                dispatch(setLoadingState())
+                const result = await client.get(getProjectsURL, {});
+                setProjects([...result.data.projects])
+                setTotalPages(result.data.totalPages);
+                setPage(result.data.page);
+                setCount(result.data.count);
+                setResetPagination(false);
+                dispatch(setSuccessState(result.data.message))
+            }catch(error) {
+                console.error(error)
+                dispatch(setFailedState(error));
+            }
         }
+        fetchProjects();
     },[isActive, offset]);
     useEffect(() => {
         if(projects.length > 0)

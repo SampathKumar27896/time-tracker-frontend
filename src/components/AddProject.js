@@ -6,7 +6,7 @@ import Toggle from './Toggle';
 import { client } from '../client';
 import URL from '../config/api';
 import { useSelector, useDispatch } from 'react-redux';
-import { resetState, getState, setLoadingState, setSuccessState, setFailedState } from '../features/APIState';
+import { getState, setLoadingState, setSuccessState, setFailedState } from '../features/APIState';
 const AddProject = (props) => {
     const componentStatus = useSelector(getState);
     const dispatch = useDispatch();

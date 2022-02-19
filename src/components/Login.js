@@ -17,7 +17,7 @@ const Login = (props) => {
         dispatch(resetStatus())
         if(props.user && props.user.isAuthenticated)
             redirect();
-    },[])
+    },[props.user])
     useEffect(() => {
         if(user.status === 'success' && user.isAuthenticated) {
             const result = saveUser(user);

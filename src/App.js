@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.css';
 import Routes from './routes';
-import Login from './components/Login';
 function App() {
   
   return (
